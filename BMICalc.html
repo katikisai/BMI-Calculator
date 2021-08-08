@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>BMI Calculator</title>
+        <script type="text/javascript">
+            function calculateBMI()
+            {
+                var height = Number(document.getElementById("height").value);
+                var weight = Number(document.getElementById("weight").value);
+
+                form.reset();
+
+                var BMI = weight/(height/100*height/100);
+
+                document.getElementById("output").innerText = BMI;
+
+                var output = BMI;
+                if (output<18.5)
+                document.getElementById("comment").innerText = "Underweight";
+                else if (output>=18.5 && output<=25)
+                document.getElementById("comment").innerText = "Normal";
+                else if (output>=25 && output<=30)
+                document.getElementById("comment").innerText = "Overweight";
+                else if (output>30)
+                document.getElementById("comment").innerText = "Obese";
+                else if (output>35)
+                document.getElementById("comment").innerText = "Extremely Obese";
+
+                document.getElementById("answer").value = output;
+                 
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Body Mass Index Calculator</h1>
+
+        <form class="form" id="form" onsubmit="return calculateBMI()">
+
+        <p>Enter your height: <input type="text" id="height" placeholder="in cms"/></p>
+        <p>Enter your weight: <input type="text" id="weight" placeholder="in kgs"/></p>
+        </form>
+        <input type="submit" value="Calculate BMI" onclick="calculateBMI();">
+        
+        <h2>Your BMI is: <span id="output">?</span></h2>
+    
+        <h3>This means you are: <span id="comment">?</span></h3>
+        
+    </body>
+</html>
